@@ -1,0 +1,19 @@
+name: ${project.artifactId}
+version: ${project.version}
+api-version: 1.13
+main: net.nebulamc.voting.Voting
+depend:
+  - MassiveCore
+  - Votifier
+
+permissions:
+  voting.command.givebypass: {description: give level bypass, default: false}
+
+  voting.*:
+    children:
+      voting.command.givebypass: true
+
+  voting.kit.op:
+    default: op
+    children:
+      enchantments.*: true
